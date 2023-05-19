@@ -1,0 +1,106 @@
+
+class pantalla{
+  constructor(x,y){
+    this.x=x;
+    this.y=y;
+    this.color=("gray");    
+    fill(this.color);
+    strokeWeight(0);
+  }
+  
+  enciende(cColor){
+    this.color= cColor;
+    fill(this.color);
+    rect(this.x,this.y,195, 295);
+  }
+
+  
+  apaga(){
+    this.color=("gray");
+    fill(this.color);
+    rect(this.x,this.y,195,295);
+  }
+}  
+let pantalla1
+
+class telefono {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.color = ("gray");
+    strokeWeight(5);
+    fill (this.color);
+    rect(x, y, 200, 300);
+    this.pantalla1= new pantalla (x+2.5,y+2.5);
+    this.saldo=3;
+    this.funciona=false;
+      
+  }
+    on(){
+      this.pantalla1.enciende("#5DA3AC");
+      this.funciona=true;
+    }
+   off(){
+      this.pantalla1.apaga();
+      this.funciona=false;
+    }
+  
+    llamada(){
+       if (this.funciona==true){
+       this.pantalla1.enciende("pink");
+       console.log("Llamada entrante...");
+      }
+    }
+    mensaje(){
+    if(this.funciona==true){
+     if (this.saldo-1>=0){
+             console.log("Mensaje enviado, tu saldo es de ", this.saldo-1);              this.saldo=this.saldo-1;
+     }else {console.log("Error al enviar el mensaje: Saldo insuficiente");
+             this.saldo=this.saldo; 
+           }
+    }
+  }
+}
+
+class Movil extends telefono{
+ constructor(x, y){
+    super(x, y);
+    this.color = ("gray");
+    strokeWeight(5);
+    fill (this.color);
+    rect(x, y, 200, 300);
+    this.pantalla1= new pantalla (x+2.5,y+2.5);
+    this.salda=3;
+    
+}
+  llenarsaldo (dinero){
+    if(this.funciona==true){
+     this.dinero=dinero;
+     this.saldo=this.saldo+dinero;
+     console.log("Tu saldo actual es,", this.saldo);
+    }
+    }
+}
+
+let tlf
+
+function setup() {
+  createCanvas(640, 360);
+//   Para que los métodos puedan realizarse es necesario que el movil este encendido en el mometo, en cambio, si este estubiera apagado o no se hubiera llegado a encender los métodos estarían bloquedas
+  
+//   CLASE PADRE
+   tlf = new telefono(100, 50);
+  tlf.on();
+  // tlf.off();
+  // tlf.llamada();
+  // tlf.mensaje(); 
+//  CLASE HIJO 
+  // tlf = new Movil(100, 50);
+  // tlf.on();
+  // tlf.off();
+  // tlf.llamada();
+  // tlf.llenar saldo(50);
+  // tlf.mensaje();
+  
+}
+
