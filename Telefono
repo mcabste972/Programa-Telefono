@@ -89,8 +89,8 @@ function setup() {
 //   Para que los métodos puedan realizarse es necesario que el movil este encendido en el mometo, en cambio, si este estubiera apagado o no se hubiera llegado a encender los métodos estarían bloquedas
   
 //   CLASE PADRE
-   tlf = new telefono(100, 50);
-  tlf.on();
+ //  tlf = new telefono(100, 50);
+//  tlf.on();
   // tlf.off();
   // tlf.llamada();
   // tlf.mensaje(); 
@@ -99,7 +99,7 @@ function setup() {
   // tlf.on();
   // tlf.off();
   // tlf.llamada();
-  // tlf.llenar saldo(50);
+  // tlf.llenarsaldo(50);
   // tlf.mensaje();
   
 }
